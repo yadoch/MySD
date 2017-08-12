@@ -12,6 +12,7 @@ import android.os.Bundle;
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
+    //用來記錄使用者是否按同意
     private boolean isPermissionOK;
     private File sdroot,approot;
     @Override
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (ContextCompat.checkSelfPermission(this,
+                // 要判斷的條件(網路,外部儲存裝置....)
                 Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED){
             // no
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void  go(){
         sdroot= Environment.getExternalStorageDirectory();
-        approot=new File(sdroot,"Android/data/")
+        approot=new File(sdroot,"Android/data/");
     }
 
 
